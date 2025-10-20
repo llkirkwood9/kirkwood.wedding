@@ -17,7 +17,7 @@ const ErrorPage = (props: Props) => {
     const exception = state.exception || props.exception;
 
     return (
-        <div className="flex flex-col items-center justify-center min-h-screen bg-primary text-gray-100 px-6">
+        <div className="flex flex-col items-center justify-center flex-1 min-h-0 bg-primary text-gray-100 px-6">
             <h1 className="text-8xl font-extrabold tracking-tight text-gray-300">{errorCode}</h1>
             <p className="mt-4 text-lg text-gray-200">{errorMessage}</p>
             {exception && (

@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter, Navigate } from "react-router-dom";
 import App from "../App";
 import HomePage from "../Pages/HomePage";
 import ErrorPage from "../Pages/ErrorPage";
@@ -10,6 +10,7 @@ export const router = createBrowserRouter([
         element: <App />,
         children: [
             { path: "", element: <HomePage /> },
+            { path: "kirkwood.wedding", element: <Navigate to="/" /> }, // Redirect for GitHub Pages
             { path: "our-story", element: <OurStory /> },
             {
                 path: "unauthorized",

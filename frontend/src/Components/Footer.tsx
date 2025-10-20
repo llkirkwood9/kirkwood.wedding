@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Footer = () => {
     return (
         <footer>
@@ -15,6 +17,12 @@ const Footer = () => {
                 <br />
             </div>
             <div className="flex items-center justify-center mb-7">6.20.2026</div>
+
+            <div className="flex items-center justify-center mb-1 text-xs">
+                <Link to="/login" className="mx-2 text-blue-200">
+                    Admin Login
+                </Link>
+            </div>
         </footer>
     );
 };

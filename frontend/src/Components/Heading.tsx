@@ -19,6 +19,48 @@ const Heading = () => {
         (weddingDate.getTime() - new Date().getTime()) / (1000 * 60 * 60 * 24)
     );
 
+    const handleAddToCalendar = () => {
+        const title = "Rachel & Logan Wedding";
+        const locationStr = "Pinehall at Eisler Farms 517 Dick Road, Butler PA, 16001";
+        const description = "Join us for Rachel & Logan's wedding on June 20, 2026.";
+
+        // All-day event: DTSTART is the day, DTEND is the next day (exclusive)
+        const dtStart = "20260620";
+        const dtEnd = "20260621";
+
+        const uid = `kirkwood-wedding-${Date.now()}@kirkwood.wedding`;
+        const dtstamp = new Date().toISOString().replace(/[-:]/g, "").split(".")[0] + "Z";
+
+        const icsLines = [
+            "BEGIN:VCALENDAR",
+            "VERSION:2.0",
+            "PRODID:-//kirkwood.wedding//EN",
+            "BEGIN:VEVENT",
+            `UID:${uid}`,
+            `DTSTAMP:${dtstamp}`,
+            `DTSTART;VALUE=DATE:${dtStart}`,
+            `DTEND;VALUE=DATE:${dtEnd}`,
+            `SUMMARY:${title}`,
+            `LOCATION:${locationStr}`,
+            `DESCRIPTION:${description}`,
+            "END:VEVENT",
+            "END:VCALENDAR",
+        ].join("\r\n");
+
+        const blob = new Blob([icsLines], { type: "text/calendar;charset=utf-8" });
+        const url = URL.createObjectURL(blob);
+
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "Rachel-Logan-Wedding.ics";
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+
+        // Revoke URL shortly after download
+        setTimeout(() => URL.revokeObjectURL(url), 1000);
+    };
+
     // Close mobile dropdown when clicking outside
     useEffect(() => {
         if (!isOpen) return;
@@ -39,7 +81,7 @@ const Heading = () => {
     }, [isOpen]);
 
     return (
-        <div className="bg-primary text-gray-100 w-screen z-50 overflow-x-hidden">
+        <div className="bg-primary text-gray-100 w-full z-50 overflow-x-hidden">
             <div className="w-full justify-right flex visible md:invisible">
                 {/* Mobile Menu Button */}
                 <button
@@ -61,16 +103,29 @@ const Heading = () => {
 
             <h2 className="text-6xl font-semibold text-center pb-4">RACHEL & LOGAN</h2>
 
-            <h3 className="text-2xl text-center">June 20, 2026 • Butler, PA, USA</h3>
+            <h3
+                className="text-2xl text-center cursor-pointer underline hover:opacity-90"
+                role="button"
+                tabIndex={0}
+                onClick={handleAddToCalendar}
+                title="Add wedding to your calendar"
+            >
+                June 20, 2026 • Butler, PA, USA
+            </h3>
 
             <h3 className="text-xl text-center">{daysUntilWedding} DAYS TO GO!</h3>
 
             <div className="justify-center flex mt-4">
-                <Button text="RSVP" icon="fa-solid fa-envelope" className="mx-auto" />
+                <Button
+                    text="RSVP"
+                    icon="fa-solid fa-envelope"
+                    className="mx-auto"
+                    onClick={() => navigate("/rsvp")}
+                />
             </div>
 
             {/* Desktop Navigation */}
-            <div className="hidden md:flex justify-center md:mt-8 space-x-3">
+            <div className="hidden md:flex justify-center md:mt-8 md:mb-1 space-x-3">
                 <TabButton
                     isActive={currentPath === "/"}
                     text="Home"

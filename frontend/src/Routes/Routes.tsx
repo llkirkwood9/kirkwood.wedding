@@ -3,6 +3,9 @@ import App from "../App";
 import HomePage from "../Pages/HomePage";
 import ErrorPage from "../Pages/ErrorPage";
 import OurStory from "../Pages/OurStory";
+import PhotosPage from "../Pages/PhotosPage";
+import WeddingPartyPage from "../Pages/WeddingPartyPage";
+import QAPage from "../Pages/QAPage";
 
 export const router = createBrowserRouter([
     {
@@ -12,6 +15,9 @@ export const router = createBrowserRouter([
             { path: "", element: <HomePage /> },
             { path: "kirkwood.wedding", element: <Navigate to="/" /> }, // Redirect for GitHub Pages
             { path: "our-story", element: <OurStory /> },
+            { path: "photos", element: <PhotosPage /> },
+            { path: "wedding-party", element: <WeddingPartyPage /> },
+            { path: "q-and-a", element: <QAPage /> },
             {
                 path: "unauthorized",
                 element: (

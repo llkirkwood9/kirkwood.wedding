@@ -23,7 +23,7 @@ const ErrorPage = (props: Props) => {
             {exception && (
                 <div className="items-center justify-center max-w-full">
                     <h2 className="mt-4 text-lg font-semibold text-gray-300 justify-center text-center">
-                        Share this error with the site administrator:
+                        Error:
                     </h2>
                     <div className="flex items-start gap-2 mt-4">
                         <pre className="p-4 bg-gray-100 dark:bg-gray-800 text-sm rounded-lg overflow-x-auto max-w-full flex-1">

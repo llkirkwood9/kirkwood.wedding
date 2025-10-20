@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import App from "../App";
 import HomePage from "../Pages/HomePage";
 import ErrorPage from "../Pages/ErrorPage";
+import OurStory from "../Pages/OurStory";
 
 export const router = createBrowserRouter([
     {
@@ -9,6 +10,7 @@ export const router = createBrowserRouter([
         element: <App />,
         children: [
             { path: "", element: <HomePage /> },
+            { path: "our-story", element: <OurStory /> },
             {
                 path: "unauthorized",
                 element: (

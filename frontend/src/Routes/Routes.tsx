@@ -6,6 +6,8 @@ import OurStory from "../Pages/OurStory";
 import PhotosPage from "../Pages/PhotosPage";
 import WeddingPartyPage from "../Pages/WeddingPartyPage";
 import QAPage from "../Pages/QAPage";
+import TravelPage from "../Pages/TravelPage";
+import ThingsToDoPage from "../Pages/ThingsToDoPage";
 
 export const router = createBrowserRouter([
     {
@@ -18,6 +20,8 @@ export const router = createBrowserRouter([
             { path: "photos", element: <PhotosPage /> },
             { path: "wedding-party", element: <WeddingPartyPage /> },
             { path: "q-and-a", element: <QAPage /> },
+            { path: "travel", element: <TravelPage /> },
+            { path: "things-to-do", element: <ThingsToDoPage /> },
             {
                 path: "unauthorized",
                 element: (

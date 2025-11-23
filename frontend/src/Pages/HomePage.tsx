@@ -25,7 +25,13 @@ const HomePage = () => {
                         <br />
                         <span className="text-lg text-center">
                             Pinehall at Eisler Farms <br />
-                            517 Dick Road, Butler PA, 16001
+                            <a
+                                href="https://www.google.com/maps/place/Pinehall+at+Eisler+Farms/data=!4m2!3m1!1s0x0:0xf9f565a081963d?sa=X&ved=1t:2428&ictx=111"
+                                target="_blank"
+                                className="underline text-blue-200"
+                            >
+                                517 Dick Road, Butler PA, 16001
+                            </a>
                         </span>
                     </p>
                 </div>

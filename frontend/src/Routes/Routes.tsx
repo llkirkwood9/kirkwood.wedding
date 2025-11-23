@@ -1,7 +1,13 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter, Navigate } from "react-router-dom";
 import App from "../App";
 import HomePage from "../Pages/HomePage";
 import ErrorPage from "../Pages/ErrorPage";
+import OurStory from "../Pages/OurStory";
+import PhotosPage from "../Pages/PhotosPage";
+import WeddingPartyPage from "../Pages/WeddingPartyPage";
+import QAPage from "../Pages/QAPage";
+import TravelPage from "../Pages/TravelPage";
+import ThingsToDoPage from "../Pages/ThingsToDoPage";
 
 export const router = createBrowserRouter([
     {
@@ -9,6 +15,13 @@ export const router = createBrowserRouter([
         element: <App />,
         children: [
             { path: "", element: <HomePage /> },
+            { path: "kirkwood.wedding", element: <Navigate to="/" /> }, // Redirect for GitHub Pages
+            { path: "our-story", element: <OurStory /> },
+            { path: "photos", element: <PhotosPage /> },
+            { path: "wedding-party", element: <WeddingPartyPage /> },
+            { path: "q-and-a", element: <QAPage /> },
+            { path: "travel", element: <TravelPage /> },
+            { path: "things-to-do", element: <ThingsToDoPage /> },
             {
                 path: "unauthorized",
                 element: (

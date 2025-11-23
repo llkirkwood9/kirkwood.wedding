@@ -17,13 +17,13 @@ const ErrorPage = (props: Props) => {
     const exception = state.exception || props.exception;
 
     return (
-        <div className="flex flex-col items-center justify-center min-h-screen bg-primary text-gray-100 px-6">
+        <div className="flex flex-col items-center justify-center flex-1 min-h-0 bg-primary text-gray-100 px-6">
             <h1 className="text-8xl font-extrabold tracking-tight text-gray-300">{errorCode}</h1>
             <p className="mt-4 text-lg text-gray-200">{errorMessage}</p>
             {exception && (
                 <div className="items-center justify-center max-w-full">
                     <h2 className="mt-4 text-lg font-semibold text-gray-300 justify-center text-center">
-                        Share this error with the site administrator:
+                        Error:
                     </h2>
                     <div className="flex items-start gap-2 mt-4">
                         <pre className="p-4 bg-gray-100 dark:bg-gray-800 text-sm rounded-lg overflow-x-auto max-w-full flex-1">

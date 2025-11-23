@@ -23,6 +23,21 @@ namespace api.Data
         /// </summary>
         public DbSet<User> Users { get; set; }
 
+        /// <summary>
+        /// Collection of Guests in the Database
+        /// </summary>
+        public DbSet<Guest> Guests { get; set; }
+
+        /// <summary>
+        /// Collection of Events in the Database
+        /// </summary>
+        public DbSet<Event> Events { get; set; }
+
+        /// <summary>
+        /// Collection of RSVPs in the Database
+        /// </summary>
+        public DbSet<Rsvp> Rsvps { get; set; }
+
         #endregion
 
         #region Method Overrides
@@ -35,7 +50,18 @@ namespace api.Data
         {
             base.OnModelCreating(modelBuilder);
 
-            // TODO: Add relationships and constraints here
+            // RSVP (many-to-many between Event and Guest)
+            modelBuilder.Entity<Rsvp>()
+                .HasOne(r => r.Event)
+                .WithMany(e => e.Rsvps)
+                .HasForeignKey(r => r.EventId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<Rsvp>()
+                .HasOne(r => r.Guest)
+                .WithMany(g => g.Rsvps)
+                .HasForeignKey(r => r.GuestId)
+                .OnDelete(DeleteBehavior.Cascade);
         }
 
         #endregion

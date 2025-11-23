@@ -20,8 +20,8 @@ const Button = (props: Props) => {
             disabled={props.isDisabled}
             onClick={props.onClick}
             type={props.type}
-            className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-gray-100 text-primary 
-            hover:bg-gray-200 transition-all disabled:bg-gray-400 ${props.className}`}
+            className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-green-600 text-white 
+            hover:bg-green-700 transition-all disabled:bg-gray-400 ${props.className}`}
         >
             {props.icon && <Icon icon={props.icon} />}
             {props.text}

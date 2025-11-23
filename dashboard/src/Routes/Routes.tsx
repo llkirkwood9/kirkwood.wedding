@@ -5,6 +5,7 @@ import ErrorPage from "../Pages/ErrorPage";
 import ProtectedRoute from "./ProtectedRoute";
 import LoginPage from "../Pages/LoginPage";
 import SettingsPage from "../Pages/SettingsPage";
+import UsersPage from "../Pages/UsersPage";
 
 export const router = createBrowserRouter([
     {
@@ -21,14 +22,14 @@ export const router = createBrowserRouter([
                     </ProtectedRoute>
                 ),
             },
-            // {
-            //     path: "users",
-            //     element: (
-            //         <ProtectedRoute>
-            //             <UsersPage />
-            //         </ProtectedRoute>
-            //     ),
-            // },
+            {
+                path: "users",
+                element: (
+                    <ProtectedRoute>
+                        <UsersPage />
+                    </ProtectedRoute>
+                ),
+            },
             {
                 path: "unauthorized",
                 element: (

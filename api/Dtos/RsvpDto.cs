@@ -1,0 +1,27 @@
+﻿using static api.Models.Rsvp;
+
+namespace api.Dtos
+{
+    public class RsvpDto
+    {
+        /// <summary>
+        /// ID of the RSVP - Primary Key
+        /// </summary>
+        public int? Id { get; set; }
+
+        /// <summary>
+        /// ID of the event the guest is RSVPing to
+        /// </summary>
+        public int? EventId { get; set; }
+
+        /// <summary>
+        /// ID of the guest who is RSVPing
+        /// </summary>
+        public int? GuestId { get; set; }
+
+        /// <summary>
+        /// RSVP Status of the guest for the event
+        /// </summary>
+        public Status? RsvpStatus { get; set; }
+    }
+}

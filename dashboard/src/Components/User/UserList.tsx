@@ -86,7 +86,7 @@ const UserList = () => {
                     onClick={() => setShowAddUserModal(true)}
                     icon="fa-solid fa-plus"
                     text="Add User"
-                    className="mb-4 ml-auto bg-green-600 dark:bg-green-700 hover:bg-green-500"
+                    className="mb-4 ml-auto bg-green-700 hover:bg-green-800"
                 />
             </div>
             <input
@@ -94,7 +94,7 @@ const UserList = () => {
                 placeholder="Search users..."
                 value={userSearch}
                 onChange={(e) => setUserSearch(e.target.value)}
-                className="mb-4 w-full px-4 py-2 border rounded-lg bg-gray-50 dark:bg-gray-700 border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="mb-4 w-full px-4 py-2 border rounded-lg bg-zinc-50 dark:bg-zinc-700 border-zinc-300 dark:border-zinc-600 focus:outline-none focus:ring-2 focus:ring-green-500"
             />
             {loading ? (
                 <ListSkeleton />
@@ -103,11 +103,11 @@ const UserList = () => {
                     {filteredUsers.map((u) => (
                         <li
                             key={u.email}
-                            className="p-4 rounded-lg bg-gray-100 dark:bg-gray-700 flex flex-col sm:flex-row sm:justify-between sm:items-center"
+                            className="p-4 rounded-lg bg-zinc-100 dark:bg-zinc-700 flex flex-col sm:flex-row sm:justify-between sm:items-center"
                         >
                             <div className="flex items-center">
-                                <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-gray-300 dark:border-gray-600 mr-4 flex-shrink-0">
-                                    <div className="w-full h-full flex items-center justify-center bg-gray-300 dark:bg-gray-600 text-gray-800 dark:text-gray-200 font-bold">
+                                <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-zinc-300 dark:border-zinc-600 mr-4 flex-shrink-0">
+                                    <div className="w-full h-full flex items-center justify-center bg-zinc-300 dark:bg-zinc-600 text-zinc-800 dark:text-zinc-200 font-bold">
                                         <Icon icon="fa-solid fa-user" />
                                     </div>
                                 </div>
@@ -124,8 +124,9 @@ const UserList = () => {
                                         setDeleteUser(u);
                                         setDeleteUserConfirmation(true);
                                     }}
-                                    icon="fa-solid fa-pencil"
-                                    text="Edit"
+                                    icon="fa-solid fa-trash"
+                                    text="Delete"
+                                    className="bg-red-700 hover:bg-red-800"
                                 />
                             </div>
                         </li>
@@ -151,7 +152,8 @@ const UserList = () => {
                         setDeleteUserConfirmation(false);
                         setDeleteUser(null);
                     }}
-                    confirmButtonClassName="bg-red-600 dark:bg-red-700 hover:bg-red-500"
+                    cancelButtonClassName="bg-zinc-600 hover:bg-zinc-700"
+                    confirmButtonClassName="bg-red-700 hover:bg-red-800"
                 />
             )}
         </div>
